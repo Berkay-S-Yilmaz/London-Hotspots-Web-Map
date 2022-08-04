@@ -25,7 +25,7 @@ def icon_color(lat, longt):
         return "red"
 
 #Starting Location, & Zoom amount
-map = folium.Map(location=[51.50912964729368, -0.11419922737620807], zoom_start=12.4)
+map = folium.Map(location=[51.50912964729368, -0.11419922737620807], zoom_start=11)
 
 
 #Zipped for loop to iterate through through items in Hotspot.txt
@@ -34,7 +34,7 @@ for latit, longt, loc, post in zip(lat, lon, location, postcode):
     #Icon based on latitude, longtitude, radius of marker, hover on market displays location, popup display postcode
     hotspots.add_child(folium.CircleMarker(location=[latit, longt], radius = 7, tooltip= loc, popup= post,
     #Customization of icons, using the icon_color function, grey outline, & opacity of icon marker 
-    fill_color = icon_color(latit, longt), color = "grey", fill_opacity=0.75))
+    fill_color = icon_color(latit, longt), color = "grey", fill_opacity=0.745))
 
 #Feature group for layer control of borders
 london_borders = folium.FeatureGroup(name = "Borders")
