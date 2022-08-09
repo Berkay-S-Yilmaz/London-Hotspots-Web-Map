@@ -28,10 +28,10 @@ def icon_color(lat, longt):
 map = folium.Map(location=[51.50912964729368, -0.11419922737620807], zoom_start=11)
 
 
-#Zipped for loop to iterate through through items in Hotspot.txt
+#Zipped for loop to iterate through items in Hotspot.txt
 hotspots = folium.FeatureGroup(name= "Hotspots")
 for latit, longt, loc, post in zip(lat, lon, location, postcode):
-    #Icon based on latitude, longtitude, radius of marker, hover on market displays location, popup display postcode
+    #Icon based on latitude, longitude, radius of marker, hover on market displays location, popup display postcode
     hotspots.add_child(folium.CircleMarker(location=[latit, longt], radius = 7, tooltip= loc, popup= post,
     #Customization of icons, using the icon_color function, grey outline, & opacity of icon marker 
     fill_color = icon_color(latit, longt), color = "grey", fill_opacity=0.745))
@@ -45,7 +45,7 @@ london_borders.add_child(folium.GeoJson(data=open("london.json", "r", encoding='
 
 map.add_child(hotspots)
 map.add_child(london_borders)
-#layer control for 'Hotspots' & 'Borders' accessed throught the child class
+#layer control for 'Hotspots' & 'Borders' accessed through the child class
 map.add_child(folium.LayerControl())
 
 
